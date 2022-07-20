@@ -40,19 +40,19 @@ class Counter extends Component {
     render() { 
         return (
             <div>
-                <img src={this.state.imageUrl2} width="200px" height="100px" alt="" />
+                {/* <img src={this.state.imageUrl2} width="200px" height="100px" alt="" /> */}
                 <span className={this.getBadgeClasses()} style={{fontSize: 10}}>{this.formatCount() }</span>
                 
                 {/* <button onClick={this.handleIncrement} className= "btn btn-success btn-sm">Increment</button> */}
-                <button onClick={this.doHandleIncrement} className= "btn btn-success btn-sm">Increment</button>
-                <button onClick={() => {this.handleIncrement({ id: 8 })}} className= "btn btn-success btn-sm">Increment</button>
+                {/* <button onClick={this.doHandleIncrement} className= "btn btn-success btn-sm">Increment</button> */}
+                {/* <button onClick={() => {this.handleIncrement({ id: 8 })}} className= "btn btn-success btn-sm">Increment</button> */}
                 <button onClick={() => {this.handleIncrement({ product: 'product 1' })}} className= "btn btn-success btn-sm">Increment</button>
                 
                 
-                <div>
+                {/* <div>
                     {this.state.tags.length === 0 && "Please create a new tag"}
                     {this.renderTags()}
-                </div>
+                </div> */}
             </div>
             
             // <React.Fragment>
