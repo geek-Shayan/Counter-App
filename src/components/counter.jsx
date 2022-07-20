@@ -2,20 +2,52 @@ import React, { Component } from 'react';
 class Counter extends Component {
     
     state = {
-        count: 1,
+        count: 0,
         tags: [ ],
         // tags: ['tag1', 'tag2', 'tag3'],
         imageUrl2: "https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg"
     };
 
+    // constructor() {
+    //     super();
+    //     // console.log("in constructor",this);
+    //     this.handleIncrement.bind(this);
+    // }
+    
+    // handleIncrement() {
+    //     console.log("Increment Clicked", this);
+    // }
+    
+    // handleIncrement = () => {
+    //     // console.log("Increment Clicked", this);
+    //     // this.state.count++;
+    //     // console.log(this.state.count);
 
+    //     this.setState({ count: this.state.count + 1 });
+
+    // }
+
+    handleIncrement = (product) => {
+        console.log(product);
+        this.setState({ count: this.state.count + 1 });
+
+    }
+
+    doHandleIncrement = () => {
+        this.handleIncrement({ id: 1 });
+    }
 
     render() { 
         return (
             <div>
                 <img src={this.state.imageUrl2} width="200px" height="100px" alt="" />
                 <span className={this.getBadgeClasses()} style={{fontSize: 10}}>{this.formatCount() }</span>
-                <button className= "btn btn-success btn-sm">Increment</button>
+                
+                {/* <button onClick={this.handleIncrement} className= "btn btn-success btn-sm">Increment</button> */}
+                <button onClick={this.doHandleIncrement} className= "btn btn-success btn-sm">Increment</button>
+                <button onClick={() => {this.handleIncrement({ id: 8 })}} className= "btn btn-success btn-sm">Increment</button>
+                <button onClick={() => {this.handleIncrement({ product: 'product 1' })}} className= "btn btn-success btn-sm">Increment</button>
+                
                 
                 <div>
                     {this.state.tags.length === 0 && "Please create a new tag"}
@@ -37,7 +69,7 @@ class Counter extends Component {
 
     getBadgeClasses() {
         let classes = "badge m-2 badge-";
-        classes += this.state.count === 0 ? "warning" : "primary";
+        classes += this.state.count === 0 ? "danger" : classes += this.state.count <= 3 ? "warning" : "primary";
         return classes;
     }
 
